@@ -42,29 +42,27 @@ class _CountriesPageState extends State<CountriesPage> {
         ),
         body: Column(
           children: [
+            SizedBox(height: 20),
             //Search
-            Container(
-              margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 1.0),
-              color: Colors.white,
-              padding: EdgeInsets.all(12),
-              child: Card(
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(3),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0)),
-                    hintText: 'Search',
-                  ),
-                  onChanged: (string) {
-                    setState(() {
-                      countryFiltererd = country
-                          .where((c) => (c.name
-                              .toLowerCase()
-                              .contains(string.toLowerCase())))
-                          .toList();
-                    });
-                  },
+            Card(
+              margin: EdgeInsets.all(5),
+              elevation: 10,
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(3),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                  hintText: 'Search',
                 ),
+                onChanged: (string) {
+                  setState(() {
+                    countryFiltererd = country
+                        .where((c) => (c.name
+                            .toLowerCase()
+                            .contains(string.toLowerCase())))
+                        .toList();
+                  });
+                },
               ),
             ),
             Expanded(
@@ -80,6 +78,10 @@ class _CountriesPageState extends State<CountriesPage> {
                     },
                     title: Text(countryFiltererd[index].name),
                     subtitle: Text(countryFiltererd[index].capital),
+                    trailing: Wrap(
+                      spacing: 12,
+                      children: [Icon(Icons.arrow_forward_ios_rounded)],
+                    ),
                   );
                 },
               ),
