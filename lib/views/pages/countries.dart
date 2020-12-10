@@ -82,6 +82,17 @@ class _CountriesPageState extends State<CountriesPage> {
                       spacing: 12,
                       children: [Icon(Icons.arrow_forward_ios_rounded)],
                     ),
+                    leading: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 44,
+                        maxWidth: 44,
+                        maxHeight: 44,
+                      ),
+                      child: Image.network(
+                          'https://flagcdn.com/w20/${countryFiltererd[index].alpha2Code}.png',
+                          fit: BoxFit.cover),
+                    ),
                   );
                 },
               ),

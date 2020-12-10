@@ -10,6 +10,7 @@ class Countries {
   String languages;
   Double gini;
   String code;
+  String alpha2Code;
 
   Countries(
       {this.id,
@@ -20,6 +21,7 @@ class Countries {
       this.languages,
       this.name,
       this.population,
+      this.alpha2Code,
       this.subregion});
 
   factory Countries.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class Countries {
       name: json['name'] as String,
       // population: json['population'] as int,
       // subregion: json['subregion'] as String,
+      alpha2Code: json['alpha2Code'] as String,
     );
   }
 }
