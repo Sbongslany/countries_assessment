@@ -12,7 +12,8 @@ class Countries {
   String code;
 
   Countries(
-      {this.area,
+      {this.id,
+      this.area,
       this.capital,
       this.code,
       this.gini,
@@ -21,15 +22,17 @@ class Countries {
       this.population,
       this.subregion});
 
-  Countries.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    subregion = json['subregion'];
-    name = json['name'];
-    capital = json['capital'];
-    population = json['population'];
-    area = json['area'];
-    languages = json['languages'];
-    gini = json['gini'];
-    code = json['code'];
+  factory Countries.fromJson(Map<String, dynamic> json) {
+    return Countries(
+      id: json['id'] as int,
+      // area: json['area'] as int,
+      capital: json['capital'] as String,
+      // code: json['code'] as String,
+      // gini: json['gini'] as Double,
+      // languages: json['languages'] as String,
+      name: json['name'] as String,
+      // population: json['population'] as int,
+      // subregion: json['subregion'] as String,
+    );
   }
 }

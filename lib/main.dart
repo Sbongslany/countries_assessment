@@ -1,7 +1,16 @@
+import 'dart:developer';
+
 import 'package:countries_info/routes.dart';
+import 'package:countries_info/views/pages/countries.services.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+void setupLocator() {
+  GetIt.I.registerLazySingleton(() => CountryService());
+}
 
 void main() {
+  setupLocator();
   runApp(PalotaCountriesAssessmentApp());
 }
 
