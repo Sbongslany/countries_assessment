@@ -23,8 +23,10 @@ class _CountriesPageState extends State<CountriesPage> {
   void initState() {
     super.initState();
     CountryService.getCountries().then((response) {
-      country = response;
-      countryFiltererd = country;
+      setState(() {
+        country = response;
+        countryFiltererd = country;
+      });
     });
   }
 
@@ -90,7 +92,7 @@ class _CountriesPageState extends State<CountriesPage> {
                         maxHeight: 44,
                       ),
                       child: Image.network(
-                          'https://flagcdn.com/w20/${countryFiltererd[index].alpha2Code}.png',
+                          'https://flagcdn.com/w20/${countryFiltererd[index].alpha2Code.toLowerCase()}.png',
                           fit: BoxFit.cover),
                     ),
                   );
