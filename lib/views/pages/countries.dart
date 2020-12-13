@@ -76,7 +76,8 @@ class _CountriesPageState extends State<CountriesPage> {
                   return ListTile(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (_) => CountryDetailPage()));
+                          builder: (_) => CountryDetailPage(
+                              selectedCountry: countryFiltererd[index])));
                     },
                     title: Text(countryFiltererd[index].name),
                     subtitle: Text(countryFiltererd[index].capital),
